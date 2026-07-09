@@ -1,0 +1,8 @@
+{
+  "name": "Truth or Dare Online",
+  "description": "An elegant, real-time two-player Truth or Dare game with General, Spicy, and Fun categories, a customizable timer, and shareable game session links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
