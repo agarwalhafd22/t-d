@@ -1695,7 +1695,7 @@ export default function App() {
                       <p className="text-zinc-700 text-xs font-bold leading-normal max-w-sm">
                         {isMyTurn ? (
                           <>
-                            You selected <strong>{gameState.currentSelection.toUpperCase()}</strong>! Waiting for <strong>{opponentPlayerObj?.name || 'your opponent'}</strong> to assign or draft your question...
+                            You selected <strong>{gameState.currentSelection.toUpperCase()}</strong>! Waiting for <strong>{opponentPlayerObj?.name || 'your opponent'}</strong> to assign your challenge...
                           </>
                         ) : (
                           <>

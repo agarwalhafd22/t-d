@@ -538,7 +538,7 @@ app.post('/api/room/:roomId/action', (req, res) => {
       const opponentName = room.turn === 'player1' 
         ? (room.players.player2?.name || 'Player 2') 
         : (room.players.player1?.name || 'Player 1');
-      room.lastActionMessage = `🤔 ${actingPlayer.name} selected ${choice.toUpperCase()}! Waiting for ${opponentName} to assign or write the question...`;
+      room.lastActionMessage = `🤔 ${actingPlayer.name} selected ${choice.toUpperCase()}! Waiting for ${opponentName} to assign the challenge...`;
 
       // Pause timer since the question is not active yet
       room.timerActive = false;
@@ -585,11 +585,7 @@ app.post('/api/room/:roomId/action', (req, res) => {
         ? (room.players.player1?.name || 'Player 1') 
         : (room.players.player2?.name || 'Player 2');
 
-      if (customText) {
-        room.lastActionMessage = `✍️ ${actingPlayer.name} wrote a custom ${room.currentSelection.toUpperCase()} for ${targetPlayerName}!`;
-      } else {
-        room.lastActionMessage = `🎲 ${actingPlayer.name} assigned an in-built ${room.currentSelection.toUpperCase()} for ${targetPlayerName}!`;
-      }
+      room.lastActionMessage = `🎲 ${actingPlayer.name} assigned a ${room.currentSelection.toUpperCase()} for ${targetPlayerName}!`;
 
       // Start the timer for the active player
       room.timerLeft = room.timerDuration;
@@ -665,7 +661,7 @@ app.post('/api/room/:roomId/action', (req, res) => {
         return res.status(400).json({ success: false, message: "Question text cannot be empty." });
       }
       room.currentQuestion.text = customText.substring(0, 500);
-      room.lastActionMessage = `✏️ ${actingPlayer.name} set a custom question!`;
+      room.lastActionMessage = `✏️ ${actingPlayer.name} updated the challenge!`;
       break;
     }
 
